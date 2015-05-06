@@ -10,21 +10,21 @@
 		<div class="col-lg-6">
 
 			<div class="form-group">
-				<label class="col-lg-2 control-label">{{ @dict.cols.title }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label">{{ @dict.cols.title }}</label>
+				<div class="col-lg-9">
 					<input type="text" class="form-control" name="name" value="{{ empty(@issue) ? "" : @issue.name | esc }}" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.cols.description }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.cols.description }}</label>
+				<div class="col-lg-9">
 					<textarea class="form-control input-sm" name="description" rows="7">{{ empty(@issue) ? "" : @issue.description | esc }}</textarea>
 				</div>
 			</div>
 			<check if="{{ !empty(@issue) }}">
 				<div class="form-group">
-					<label class="col-lg-2 control-label label-sm">{{ @dict.cols.type }}</label>
-					<div class="col-lg-10">
+					<label class="col-lg-3 control-label label-sm">{{ @dict.cols.type }}</label>
+					<div class="col-lg-9">
 						<select class="form-control input-sm" name="type_id">
 							<repeat group="{{ @issue_types }}" value="{{ @item }}">
 								<option value="{{ @item.id }}" {{ @issue.type_id == @item.id ? "selected" : "" }}>{{ @item.name }}</option>
@@ -34,8 +34,8 @@
 				</div>
 			</check>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.cols.priority }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.cols.priority }}</label>
+				<div class="col-lg-9">
 					<select class="form-control input-sm" name="priority">
 						<repeat group="{{ @priorities }}" value="{{ @item }}">
 							<check if="{{ empty(@issue) }}">
@@ -51,8 +51,8 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.cols.status }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.cols.status }}</label>
+				<div class="col-lg-9">
 					<select class="form-control input-sm" name="status">
 						<repeat group="{{ @statuses }}" value="{{ @item }}">
 							<option value="{{ @item.id }}" {{ !empty(@issue) && @issue.status == @item.id ? "selected" : "" }}>{{ @item.name }}</option>
@@ -62,8 +62,8 @@
 			</div>
 			<check if="{{ @user.role=='admin' }}">
 				<div class="form-group">
-					<label class="col-lg-2 control-label label-sm">{{ @dict.cols.author }}</label>
-					<div class="col-lg-10">
+					<label class="col-lg-3 control-label label-sm">{{ @dict.cols.author }}</label>
+					<div class="col-lg-9">
 						<select class="form-control input-sm" name="author_id">
 							<option value="{{ @user.id }}" {{ empty(@issue) ? 'selected' : '' }}>{{ @user.name | esc }}</option>
 							<optgroup label="Groups">
@@ -87,8 +87,8 @@
 				</div>
 			</check>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.cols.assignee }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.cols.assignee }}</label>
+				<div class="col-lg-9">
 					<select class="form-control input-sm" name="owner_id">
 						<option value="0">{{ @dict.not_assigned }}</option>
 						<option value="{{ @user.id }}" {{ empty(@issue) ? 'selected' : '' }}>{{ @user.name | esc }}</option>
@@ -117,41 +117,41 @@
 
 			<check if="{{ !empty(@issue) }}">
 				<div class="form-group">
-					<label class="col-lg-2 control-label label-sm">{{ @dict.cols.total_spent_hours }}</label>
-					<div class="col-lg-10">
+					<label class="col-lg-3 control-label label-sm">{{ @dict.cols.total_spent_hours }}</label>
+					<div class="col-lg-9">
 						<input class="form-control input-sm" type="text" name="hours_spent" value="{{ @issue.hours_spent }}">
 					</div>
 				</div>
 			</check>
 			<check if="{{ !empty(@issue) }}">
 				<div class="form-group">
-					<label class="col-lg-2 control-label label-sm">{{ @dict.cols.planned_hours }}</label>
-					<div class="col-lg-10">
+					<label class="col-lg-3 control-label label-sm">{{ @dict.cols.planned_hours }}</label>
+					<div class="col-lg-9">
 						<input class="form-control input-sm" type="text" name="hours_total" value="{{ @issue.hours_total }}">
 					</div>
 				</div>
 			</check>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ empty(@issue) ? @dict.cols.planned_hours : @dict.cols.remaining_hours }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ empty(@issue) ? @dict.cols.planned_hours : @dict.cols.remaining_hours }}</label>
+				<div class="col-lg-9">
 					<input class="form-control input-sm" type="text" name="hours_remaining" value="{{ empty(@issue) ? "" : @issue.hours_remaining }}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.cols.start_date }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.cols.start_date }}</label>
+				<div class="col-lg-9">
 					<input class="form-control input-sm" id="start_date" type="text" name="start_date"  value="{{ empty(@issue) ? "" : @issue.start_date }}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.cols.due_date }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.cols.due_date }}</label>
+				<div class="col-lg-9">
 					<input class="form-control input-sm" id="due_date" type="text" name="due_date"  value="{{ empty(@issue) ? "" : @issue.due_date }}">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.cols.repeat_cycle }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.cols.repeat_cycle }}</label>
+				<div class="col-lg-9">
 					<select class="form-control input-sm" name="repeat_cycle">
 						<option value="">{{ @dict.not_repeating }}</option>
 						<option value="daily" {{ !empty(@issue) && @issue.repeat_cycle == 'daily' ? "selected" : "" }}>{{ @dict.daily }}</option>
@@ -162,8 +162,8 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.cols.parent_id }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.cols.parent_id }}</label>
+				<div class="col-lg-9">
 					<check if="{{ !empty(@issue) }}">
 						<true>
 							<input class="form-control input-sm" type="text" name="parent_id" value="{{ empty(@issue) ? "" : @issue.parent_id }}">
@@ -175,8 +175,8 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.cols.sprint }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.cols.sprint }}</label>
+				<div class="col-lg-9">
 					<select class="form-control input-sm" name="sprint_id">
 						<option value="">{{ @dict.no_sprint }}</option>
 						<repeat group="{{ @sprints }}" value="{{ @item }}">
@@ -201,8 +201,8 @@
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="form-group">
-				<label class="col-lg-2 control-label label-sm">{{ @dict.comment }}</label>
-				<div class="col-lg-10">
+				<label class="col-lg-3 control-label label-sm">{{ @dict.comment }}</label>
+				<div class="col-lg-9">
 					<textarea class="form-control input-sm" name="comment" rows="3">{{ !empty(@comment) && is_string(@comment) ? @comment : "" | esc }}</textarea>
 				</div>
 			</div>
@@ -214,7 +214,7 @@
 						<input type="checkbox" name="notify" value="1" checked>
 						{{ @dict.send_notifications }}
 					</label>
-				</div>
+				</div>&ensp;
 				<check if="{{ !empty(@issue) }}">
 					<a href="{{ @site.url }}issues/{{ @issue.id }}" class="btn btn-default btn-sm btn-cancel">{{ @dict.cancel }}</a>
 					<button type="reset" class="btn btn-default btn-sm">{{ @dict.reset }}</button>
